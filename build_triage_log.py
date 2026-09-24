@@ -32,11 +32,10 @@ def update_triage_manual():
         [Paragraph("INC-002 (Resolved)", body_style), Paragraph("Identity Management<br/>(Active Directory)", body_style), Paragraph("Resolved user account brute-force protection lockout failures. Used targeted command line parameters (<code>net user [username] /active:yes /unlock</code>) to break security blocks without modifying credential configurations.", body_style)],
         [Paragraph("INC-003 (Resolved)", body_style), Paragraph("Storage &amp; File Systems<br/>(Disk Subsystem)", body_style), Paragraph("Audited logical partitioning tracks and hard volume boundaries using <code>diskpart</code>. Deployed deep structural file system repair scans via volume parameters (<code>chkdsk C: /f /r</code>).", body_style)],
         [Paragraph("INC-004 (Resolved)", body_style), Paragraph("Operating System<br/>(Bare-Metal Deployment)", body_style), Paragraph("Diagnosed critical system image file corruption. Flashed a verified Windows 11 Pro ISO onto storage using Rufus. Executed complete destructive drive re-partitioning and clean OS deployment.", body_style)],
-        [Paragraph("INC-005 (Resolved)", body_style), Paragraph("Peripherals / Print Stack<br/>(Logical Spooler Lock)", body_style), Paragraph("Remediated local print job freeze blocks. Executed administrative service terminations (<code>net stop spooler</code>), purged corrupted spool data directories via system root controls, and re-initialized the print queue engine successfully.", body_style)]
+        [Paragraph("INC-005 (Resolved)", body_style), Paragraph("Peripherals / Print Stack<br/>(Logical Spooler Lock)", body_style), Paragraph("Remediated local print job freeze blocks. Executed administrative service terminations (<code>net stop spooler</code>), purged corrupted spool data directories via system root controls, and re-initialized the print queue engine successfully.", body_style)],
+        [Paragraph("INC-006 (Resolved)", body_style), Paragraph("Name Resolution Layer<br/>(DNS Transport/Cache)", body_style), Paragraph("Diagnosed domain routing and server resolution failures. Executed administrative clearing parameters (<code>ipconfig /flushdns</code>) to purge stale database maps, and validated structural TCP/IP pathway conversion links using <code>nslookup</code> queries.", body_style)]
     ]
-    
-    # Explicit pixel column dimensions to force a perfect fit layout
-    t1 = Table(triage_data, colWidths=[110, 130, 300])
+    t1 = Table(triage_data, colWidths=[110, 130, 260])
     t1.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), bg_light),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#BDC3C7")),
@@ -51,6 +50,7 @@ def update_triage_manual():
     story.append(Paragraph("diskpart -> list disk -> list volume -> chkdsk C: /f /r", code_style))
     story.append(Paragraph("Rufus -> Windows 11 Pro ISO Bare-Metal Flashing &amp; Deployment", code_style))
     story.append(Paragraph("net stop spooler -> del /Q /F /S spool\\PRINTERS\\* -> net start spooler", code_style))
+    story.append(Paragraph("ipconfig /displaydns -> ipconfig /flushdns -> nslookup [domain]", code_style))
     
     doc.build(story)
 
