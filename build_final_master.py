@@ -23,23 +23,21 @@ def generate_master_manual():
     code_style = ParagraphStyle('CodeBox', fontName='Courier', fontSize=8.5, leading=12, textColor=primary_color, backColor=code_bg, borderPadding=6, spaceBefore=4, spaceAfter=4)
     
     story.append(Paragraph("THE IT BREAK-FIX MANUAL: MASTER OPERATIONS LOG", title_style))
-    story.append(Paragraph("<b>Lead Systems Specialist:</b> Abdoulaye Sidibe | <b>Portfolio:</b> ://substack.com", body_style))
+    story.append(Paragraph("<b>Lead Systems Specialist:</b> Nosstra Damis | <b>Portfolio:</b> ://substack.com", body_style))
     story.append(Spacer(1, 4))
-    story.append(Paragraph("A comprehensive enterprise archive documenting end-to-end root-cause analysis, system recovery, and infrastructure triage mapped across both Command-Line Interfaces (CLI) and Graphical User Interfaces (GUI).", sub_style))
+    story.append(Paragraph("A comprehensive enterprise archive documenting end-to-end root-cause analysis, system recovery, and perimeter firewall remediation across virtual laboratory network interfaces.", sub_style))
     
     story.append(Paragraph("MASTER INCIDENT TRIAGE MATRIX", h1_style))
     
-    # Safe explicit array widths to prevent formatting glitches
-    fixed_widths = [60, 110, 370]
+    # 0.5" column 1, 1.25" column 2, 5.75" column 3
+    fixed_widths = [36, 90, 414]
     
     data = [
         [Paragraph("<b>Code</b>", header_text_style), Paragraph("<b>Subsystem</b>", header_text_style), Paragraph("<b>Unified Triage &amp; Multi-Path Remediation Methodology</b>", header_text_style)],
-        [Paragraph("INC-001", body_style), Paragraph("Network Layer<br/>(DHCP Outage)", body_style), Paragraph("<b>CLI Path:</b> Executed <code>ipconfig /release</code> and <code>/renew</code> (Windows) to flush corrupted temporary software configuration layers.<br/><b>GUI Path:</b> Access VirtualBox <code>Devices -> Network -> Network Settings</code> to toggle 'Cable Connected' state to isolate hardware boundary links.", body_style)],
-        [Paragraph("INC-002", body_style), Paragraph("Identity/Access<br/>(AD / RBAC)", body_style), Paragraph("<b>CLI Path:</b> Provisioned secure domain containers via PowerShell using <code>New-ADGroup</code> and complex user profiles via <code>New-ADUser</code> with complexity rules, linking identity loops cleanly via <code>Add-ADGroupMember</code> parameters.<br/><b>GUI Path:</b> Expand <code>nosstradamis.local</code> tree ➡️ Expand <code>Users</code> container ➡️ Right-click target security group ➡️ Select <code>Properties</code> ➡️ Open <code>Members</code> tab ➡️ Click <code>Add</code> to bridge accounts visually (Bill Fof &amp; N'dia Malick).", body_style)],
-        [Paragraph("INC-003", body_style), Paragraph("Storage &amp; Volume<br/>(Disk Partition)", body_style), Paragraph("<b>CLI Path:</b> Launched low-level partitioning tracks via <code>diskpart -> list volume</code>, executing structural file system validation and recovery sequences using <code>chkdsk C: /f /r</code>.<br/><b>GUI Path:</b> Managed volumes via <code>Disk Management (diskmgmt.msc)</code> to format raw space visually.", body_style)],
-        [Paragraph("INC-004", body_style), Paragraph("Operating System<br/>(Bare-Metal OS)", body_style), Paragraph("<b>Remediation:</b> Resolved critical environment image file corruption. Deployed external installation infrastructure using Rufus to flash a verified Windows 11 Pro ISO onto storage. Executed complete destructive drive re-partitioning and clean OS deployment.", body_style)],
-        [Paragraph("INC-005", body_style), Paragraph("Peripherals<br/>(Print Queue)", body_style), Paragraph("<b>CLI Path:</b> Forced print queue terminations via <code>net stop spooler</code>, manually purging the corrupted spool data cache via root delete commands, and restarting the engine via <code>net start spooler</code>.<br/><b>GUI Path:</b> Navigated via <code>Services.msc -> Print Spooler -> Restart</code> to clear data blocks.", body_style)],
-        [Paragraph("INC-006", body_style), Paragraph("Name Resolution<br/>(DNS Transport)", body_style), Paragraph("<b>CLI Path:</b> Cleared domain translation bottlenecks using <code>ipconfig /flushdns</code>, verifying name resolution routing paths using <code>nslookup</code> queries.<br/><b>GUI Path:</b> Navigated via <code>Network and Sharing Center -> Change Adapter Settings -> IPv4 Properties</code>.", body_style)]
+        [Paragraph("INC-001", body_style), Paragraph("Network Layer<br/>(DHCP Outage)", body_style), Paragraph("<b>CLI Path:</b> Executed <code>ipconfig /release</code> and <code>/renew</code> to flush corrupted temporary software configuration layers.<br/><b>GUI Path:</b> Toggled 'Cable Connected' options inside VirtualBox network properties to reset physical links cleanly.", body_style)],
+        [Paragraph("INC-004", body_style), Paragraph("Security Ops<br/>(Scareware Script)", body_style), Paragraph("<b>Root Cause:</b> Isolated a malicious browser full-screen script generating fake antivirus alerts to induce unauthorized telemetry downloads.<br/><b>Remediation:</b> Enforced strict network layer isolation by physically decoupling the Cat6 Ethernet link. Executed process termination via <code>taskkill /f /im chrome.exe</code>.", body_style)],
+        [Paragraph("INC-005", body_style), Paragraph("SecOps / Triage<br/>(Persistence)", body_style), Paragraph("<b>Root Cause:</b> Identified a hidden startup loop disguised as <code>updater.exe</code> in <code>AppData\Local\PulseSoftware</code> forcing full-screen kiosk popups.<br/><b>Remediation:</b> Disabled the startup entry via Task Manager, terminated active process memory rails via CLI, and shift-deleted the execution binary directories.", body_style)],
+        [Paragraph("INC-006", body_style), Paragraph("Perimeter Security<br/>(Host Firewall CLI)", body_style), Paragraph("<b>Objective:</b> Fortified Windows Server 2022 perimeter defenses against malicious network scanning and ransomware lateral movement vectors.<br/><b>Remediation:</b> Imported network security dependencies via <code>Import-Module NetSecurity</code>. Deployed an inbound port rule targeting TCP Port 445 (SMB) using <code>New-NetFirewallRule</code> to completely drop ransomware traffic paths. Implemented a host containment rule to block a malicious attacker IP address (192.168.1.99) from communicating with the server.", body_style)]
     ]
     
     t1 = Table(data, colWidths=fixed_widths)
@@ -52,13 +50,10 @@ def generate_master_manual():
     ]))
     story.append(t1)
     
-    story.append(Paragraph("💻 KEY TECHNICAL REMEDIATION STRINGS:", h1_style))
-    story.append(Paragraph("<b>[DHCP Triage]</b> ipconfig /release && ipconfig /renew", code_style))
-    story.append(Paragraph("<b>[AD Group Deployment]</b> New-ADGroup -Name 'Finance_Dept_SG' -GroupScope Global -GroupCategory Security", code_style))
-    story.append(Paragraph("<b>[AD User Complexity Provisioning]</b> New-ADUser -Name 'Bill Fof' -SamAccountName 'bfof' -AccountPassword $SecurePassword -Enabled $true", code_style))
-    story.append(Paragraph("<b>[AD Member Nesting]</b> Add-ADGroupMember -Identity 'Finance_Dept_SG' -Members 'bfof', 'nmalick'", code_style))
-    story.append(Paragraph("<b>[Printer Spooler Purge]</b> net stop spooler -> del /Q /F /S spool\\PRINTERS\\* -> net start spooler", code_style))
-    story.append(Paragraph("<b>[DNS Flush]</b> ipconfig /flushdns -> nslookup [domain]", code_style))
+    story.append(Paragraph("💻 MASTER SECURE REGISTRY REMEDIATION COMMANDS LOG:", h1_style))
+    story.append(Paragraph("<b>[Host Firewall Port Lockdown]</b> New-NetFirewallRule -DisplayName 'LAB_Block_SMB_Malware' -Direction Inbound -LocalPort 445 -Protocol TCP -Action Block", code_style))
+    story.append(Paragraph("<b>[Host Firewall Host Containment]</b> New-NetFirewallRule -DisplayName 'LAB_Block_Rogue_Attacker' -Direction Inbound -RemoteAddress '192.168.1.99' -Action Block", code_style))
+    story.append(Paragraph("<b>[Host Firewall Verification Pass]</b> Get-NetFirewallRule -DisplayName 'LAB_Block_SMB_Malware' | Select-Object Name, Action, Enabled", code_style))
     
     doc.build(story)
 
